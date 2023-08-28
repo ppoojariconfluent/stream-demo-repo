@@ -112,7 +112,7 @@ def main(args):
 
     schema_registry_conf = {
         'url': 'enter your schema registry url',
-        'basic.auth.user.info': 'sr-key:sr-secret'
+        'basic.auth.user.info': 'schema_registry_key:schema_registry_secret'
         }
     schema_registry_client = SchemaRegistryClient(schema_registry_conf)
 
