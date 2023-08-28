@@ -1,0 +1,23 @@
+{
+    "namespace": "confluent.io.examples.serialization.avro",
+    "name": "Transaction",
+    "type": "record",
+    "fields": [
+        {
+            "name": "transaction_id",
+            "type": "string"
+        },
+        {
+            "name": "account_number",
+            "type": "string"
+        },
+        {
+            "name": "amount",
+            "type": "float"
+        },
+        {
+            "name": "transaction_type",
+            "type": "string"
+        } 
+    ]
+}
