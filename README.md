@@ -38,13 +38,16 @@ terraform plan
 ```
 terraform apply
 ```
-3.Create topic named as **bank-transactions** and **customer-details** with 6 partitions.
-4. enter your bootstrap url, schema regitry url, cluster api key and secret, schema registry key and secret into the customer.py and tranasaction.py
-5. Run producers using below commands
+3. Create topic named as **bank-transactions** and **customer-details** with 6 partitions.
+4. Enable the Stream Governance Advance Package for the Environment
+5. Create/Enable Tags [here](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#create-tags)
+6. Create Business Metdata [here](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#examples)
+7. Enter your bootstrap url, schema regitry url, cluster api key and secret, schema registry key and secret into the customer.py and tranasaction.py
+8. Run producers using below commands
 
 
  ```
-python3 transaction.py
+python3 transaction.py    
 ```
  ```
 python3 customer.py
