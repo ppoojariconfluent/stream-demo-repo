@@ -2,6 +2,7 @@
     "namespace": "confluent.io.examples.serialization.avro",
     "name": "Transaction",
     "type": "record",
+    "confluent:tags": [ "PII" ],
     "fields": [
         {
             "name": "transaction_id",
