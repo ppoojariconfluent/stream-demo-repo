@@ -111,8 +111,8 @@ def main(args):
         schema_str = f.read()
 
     schema_registry_conf = {
-        'url': 'https://psrc-9wjxm.southeastasia.azure.confluent.cloud',
-        'basic.auth.user.info': 'RFMIVEFVBUNOOZ7P:lN0i3dE24QS9zk1BAHGJdV14T+12Lee1hTtXDQbD6KmIBgGZCbm1OI4yLF5GcGDD'
+        'url': 'schema registry url',
+        'basic.auth.user.info': 'schema_registry_key:schema_registry_secret'
         }
     schema_registry_client = SchemaRegistryClient(schema_registry_conf)
 
@@ -122,11 +122,11 @@ def main(args):
 
     string_serializer = StringSerializer('utf_8')
 
-    producer_conf = {'bootstrap.servers': 'pkc-p11xm.us-east-1.aws.confluent.cloud:9092',
+    producer_conf = {'bootstrap.servers': 'bootstrap url',
     'sasl.mechanisms': 'PLAIN',
     'security.protocol': 'SASL_SSL',
-    'sasl.username': '5WURIXNIMRZUTSID',
-    'sasl.password': 'Fn5rBC4YNMw3HCAxv+TS2yxvfEBmcZEw9Hjl/DN3n3IrWHMR/Ro3JzAIvNFfz1dU',
+    'sasl.username': 'cluster api key',
+    'sasl.password': 'cluster api secret',
     }
 
     producer = Producer(producer_conf)
