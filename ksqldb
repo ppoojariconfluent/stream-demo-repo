@@ -1,0 +1,40 @@
+-- Create streams
+CREATE STREAM transactions_stream (
+    transaction_id STRING,
+    account_number STRING,
+    amount DOUBLE,
+    transaction_type STRING
+) WITH (
+    KAFKA_TOPIC='bank-transactions',
+    VALUE_FORMAT='AVRO'
+);
+
+CREATE STREAM customers_stream (
+    account_id STRING,
+    name STRING,
+    email STRING,
+    phone STRING
+) WITH (
+    KAFKA_TOPIC='customer-details',
+    VALUE_FORMAT='AVRO'
+);
+
+-- Create enriched stream
+CREATE STREAM customer_transactions_stream WITH (
+    KAFKA_TOPIC='customer-transactions',
+    VALUE_FORMAT='AVRO',
+    PARTITIONS=6
+)
+AS
+SELECT
+    t.transaction_id,
+    t.account_number AS transaction_account_number,
+    t.amount,
+    t.transaction_type,
+    c.name,
+    c.email,
+    c.phone
+FROM transactions_stream t
+LEFT JOIN customers_stream c 
+ WITHIN 1 HOUR
+ ON t.account_number = c.account_number;
