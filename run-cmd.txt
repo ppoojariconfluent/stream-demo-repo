@@ -1,60 +1,14 @@
-python3 trial.py -b pkc-p11xm.us-east-1.aws.confluent.cloud:9092 -s psrc-9wjxm.southeastasia.azure.confluent.cloud
 
 
-python3 demo1.py -b pkc-p11xm.us-east-1.aws.confluent.cloud:9092 -s psrc-9wjxm.southeastasia.azure.confluent.cloud
+
+python3 demo1.py -b bootstrap-url -s schema-registry-url   ### without https://
 
 python3 transaction.py -b pkc-p11xm.us-east-1.aws.confluent.cloud:9092 -s psrc-9wjxm.southeastasia.azure.confluent.cloud
 
-python3 customer.py -b pkc-p11xm.us-east-1.aws.confluent.cloud:9092 -s psrc-9wjxm.southeastasia.azure.confluent.cloud
-
-python3 data-quality-rule.py -b pkc-p11xm.us-east-1.aws.confluent.cloud:9092 -s psrc-9wjxm.southeastasia.azure.confluent.cloud
-
-for i in range(5):
-    customer = {
-        "account_id": f"account_{i}",
-        "name": f"Customer {i}",
-        "email": f"customer{i}@bank.com",
-        "phone": f"+123456789{i}"
-    }
 
 
-{
-  "topics": "customer-transactions",
-  "input.data.format": "AVRO",
-  "connector.class": "S3_SINK",
-  "name": "S3_SINKConnector_0",
-  "kafka.auth.mode": "KAFKA_API_KEY",
-  "kafka.api.key": "5WURIXNIMRZUTSID",
-  "kafka.api.secret": "****************************************************************",
-  "aws.access.key.id": "********************",
-  "aws.secret.access.key": "****************************************",
-  "s3.bucket.name": "demo-s3sink-bucket",
-  "s3.part.size": "5242880",
-  "s3.wan.mode": "false",
-  "output.data.format": "AVRO",
-  "output.keys.format": "AVRO",
-  "output.headers.format": "AVRO",
-  "topics.dir": "topics",
-  "path.format": "'year'=YYYY/'month'=MM/'day'=dd/'hour'=HH",
-  "time.interval": "HOURLY",
-  "rotate.schedule.interval.ms": "-1",
-  "flush.size": "1000",
-  "behavior.on.null.values": "ignore",
-  "timezone": "UTC",
-  "subject.name.strategy": "TopicNameStrategy",
-  "tombstone.encoded.partition": "tombstone",
-  "enhanced.avro.schema.support": "true",
-  "locale": "en",
-  "s3.schema.partition.affix.type": "NONE",
-  "schema.compatibility": "NONE",
-  "store.kafka.keys": "false",
-  "value.converter.connect.meta.data": "true",
-  "store.kafka.headers": "false",
-  "s3.object.tagging": "false",
-  "max.poll.interval.ms": "300000",
-  "max.poll.records": "500",
-  "tasks.max": "1"
-}
+
+
 
 
 
