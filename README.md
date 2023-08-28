@@ -18,7 +18,9 @@ In order to successfully complete this demo you need to install few tools before
   <img src="images/Cloud API Key.png" width =100% heigth=100%>
 </div>
 - Now Click Add Key to generate API keys and store it as we will be using that key in this demo.
+
 - **Note:** This is different than Kafka cluster API keys.
+
 ## STEPS to deploy the demo
 
 1. replace the values of the cloud api key and secret in variables.tf
